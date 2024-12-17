@@ -19,8 +19,7 @@
     "precommit": "lint-staged"
   },
   "lint-staged": {
-    "*/**/*.{js,jsx,html}": "npm run lint:fix",
-    ".": "npm run format"
+    ".": ["npm run lint:fix", "npm run format"]
   },
   "eslintConfig": {
     "extends": [
