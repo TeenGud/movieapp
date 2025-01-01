@@ -1,0 +1,7 @@
+.input_container {
+  display: flex;
+  justify-content: center;
+}
+.input {
+  width: 944px;
+}

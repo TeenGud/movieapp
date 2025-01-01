@@ -3,8 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "antd": "^5.22.5",
     "cra-template": "1.2.0",
+    "lodash": "^4.17.21",
     "react": "^19.0.0",
+    "react-detect-offline": "^2.4.5",
     "react-dom": "^19.0.0",
     "react-scripts": "^5.0.1"
   },
@@ -14,12 +17,15 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint */**/*.{js,jsx,html}",
-    "lint:fix": "eslint --fix '*/**/*.{js,jsx,html}'",
+    "lint:fix": "eslint --fix */**/*.{js,jsx,html}",
     "format": "prettier . --write",
     "precommit": "lint-staged"
   },
   "lint-staged": {
-    ".": ["npm run lint:fix", "npm run format"]
+    ".": [
+      "npm run lint:fix",
+      "npm run format"
+    ]
   },
   "eslintConfig": {
     "extends": [
