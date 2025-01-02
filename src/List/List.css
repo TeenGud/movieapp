@@ -10,3 +10,10 @@
 .spinContainer {
   margin-top: 30px;
 }
+
+@media screen and (max-width: 984px) {
+  .moviesList {
+    grid-template-columns: repeat(1, 454px);
+    gap: 20px;
+  }
+}

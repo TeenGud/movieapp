@@ -30,22 +30,52 @@ function Movie({ title, description, poster, release_date, vote_average, movieId
     );
   }
   return (
-    <li className="movie">
-      <Image
-        src={`https://image.tmdb.org/t/p/w500/${poster}`}
-        alt={title}
-        width={183}
-        height={281}
-        fallback={fallback}
-        className="movie_poster"
-      />
-      <div className="info">
-        <div className="title_and_rate">
-          <h3 className="title">{title}</h3>
+    <>
+      <li className="movie big_screen">
+        <Image
+          src={`https://image.tmdb.org/t/p/w500/${poster}`}
+          alt={title}
+          fallback={fallback}
+          width={183}
+          height={281}
+          className="movie_poster"
+        />
+        <div className="info">
+          <div className="title_and_rate">
+            <h3 className="title">{title}</h3>
+            <span className={`rate ${colorClass}`}>{vote_average?.toFixed(1) || 0.0}</span>
+          </div>
+          <p className="date">{release_date}</p>
+          <div className="tags">{genres}</div>
+          <p className="description">{sliceDescription(description)}</p>
+          <Rate
+            className="stars"
+            allowHalf
+            defaultValue={0}
+            count={10}
+            onChange={onChangeRaiting}
+            value={rateValue}
+            disabled={isRatedPage}
+          />
+        </div>
+      </li>
+      <li className="movie small_screen">
+        <div className="movie_info_wrapper">
+          <div className="movie_info">
+            <Image
+              src={`https://image.tmdb.org/t/p/w500/${poster}`}
+              alt={title}
+              fallback={fallback}
+              className="movie_poster"
+            />
+            <div className="movie_info__right">
+              <h3 className="title">{title}</h3>
+              <p className="date">{release_date}</p>
+              <div className="tags">{genres}</div>
+            </div>
+          </div>
           <span className={`rate ${colorClass}`}>{vote_average?.toFixed(1) || 0.0}</span>
         </div>
-        <p className="date">{release_date}</p>
-        <div className="tags">{genres}</div>
         <p className="description">{sliceDescription(description)}</p>
         <Rate
           className="stars"
@@ -56,8 +86,8 @@ function Movie({ title, description, poster, release_date, vote_average, movieId
           value={rateValue}
           disabled={isRatedPage}
         />
-      </div>
-    </li>
+      </li>
+    </>
   );
 }
 
